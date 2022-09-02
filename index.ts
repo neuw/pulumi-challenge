@@ -1,11 +1,11 @@
 import { CdnWebsite } from "./cdn-website";
+import * as checkly from "@checkly/pulumi";
+import * as fs from "fs";
+import { Swag } from "./swag-provider";
 
 const website = new CdnWebsite("neuw", {});
 
 export const websiteUrl = website.url;
-
-import * as checkly from "@checkly/pulumi";
-import * as fs from "fs";
 
 new checkly.Check("index-page", {
     activated: true,
@@ -18,4 +18,11 @@ new checkly.Check("index-page", {
             .toString("utf8")
             .replace("{{websiteUrl}}", url)
     ),
+});
+
+const swag = new Swag("************", {
+    name: "**************",
+    email: "*****@****.***",
+    address: "********",
+    size: "L",
 });

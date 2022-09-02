@@ -10,6 +10,10 @@
         "@pulumi/awsx": "^0.40.0",
         "@pulumi/pulumi": "^3.0.0",
         "@types/mime": "^3.0.1",
+        "got": "^11.8.0",
         "mime": "^3.0.0"
+    },
+    "scripts": {
+        "up": "pulumi up"
     }
 }
